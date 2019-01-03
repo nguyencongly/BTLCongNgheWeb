@@ -137,12 +137,12 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
         <div class="text-center center-block">
             
             <br />
-               
+                <a href="https://www.facebook.com"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 	            
-	          
-	        
+	            
+	           
 	</div>
-	<center><button type="submit" href="index.php">Đăng Xuất</button></center>
+	<div><button type="submit" class="btn btn-default" name="dangky" HREF="index.php">Đăng XUẤT</button>
 <script src="js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>

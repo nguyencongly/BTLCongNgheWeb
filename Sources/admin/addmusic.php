@@ -1,14 +1,13 @@
-<?php 
+<?php
 			include("connect.php");
-			$id = $_GET['id'];
-			$music = $_POST['music'];
-			$type = $_POST['type'];
+			$music = checkInput($_POST['music']);
+			$type = checkInput($_POST['type']);
 			$check = "SELECT `music` FROM music WHERE music = '$music'";
 			$result_check = $conn->query($check);
 			if (empty($music) || empty($type)) {
 				echo '<div class="alert alert-danger">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				  <strong></strong> Dữ Liệu Trống Vui Lòng Điền Vào Input.
+				  <strong></strong> Bạn Chưa Nhập Đẩy Đủ Thông Tin.
 				</div>';
 			}
 			else{
@@ -21,7 +20,7 @@
 				} 
 				else
 				{
-				$sql = "UPDATE `music` SET `id`='$id',`music`='$music',`type`='$type' WHERE id='$id'";
+				$sql = "insert into `music`(`music`,`type`) value ('$music','$type')";
 				$result = $conn->query($sql);
 				echo "<script>";
 				echo "location.reload();";
