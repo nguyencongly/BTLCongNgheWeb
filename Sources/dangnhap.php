@@ -25,26 +25,63 @@ if (isset($_POST['dangnhap']))
     $password = md5($password);
      
     //Kiểm tra tên đăng nhập có tồn tại không
-    $query = mysqli_query($conn,"SELECT username,password FROM user WHERE username='$username'");
-    // if (mysql_num_rows($query) == 0) {
-    //     echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+    // $query = mysqli_query($conn,"SELECT username,password FROM user WHERE username='$username'");
+    // // if (mysql_num_rows($query) == 0) {
+    // //     echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+    // //     exit;
+    // // }
+     
+    // //Lấy mật khẩu trong database ra
+    // $row = mysqli_fetch_array($query);
+     
+    //So sánh 2 mật khẩu có trùng khớp hay không
+    // if ($password != $row['password']) {
+    //     echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
     //     exit;
     // }
      
-    //Lấy mật khẩu trong database ra
-    $row = mysqli_fetch_array($query);
-     
-    //So sánh 2 mật khẩu có trùng khớp hay không
-    if ($password != $row['password']) {
-        echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
-        exit;
-    }
-     
     //Lưu tên đăng nhập
-    $_SESSION['username'] = $username;
-    echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công. <a href='dashboard.php'>Về trang chủ</a>";
-    die();
+   
+    $sql=mysqli_query($conn,"select * from user where username='$username' and password='$password'");
+	$row=mysqli_num_rows($sql);
+	
+	if($row>0)
+	{
+	
+		$arr=mysqli_fetch_array($sql);
+		$_SESSION['u_id']= $arr['id'];
+		$_SESSION['user_id'] = $arr['username'];
+		$_SESSION['pass']= $arr['password'];
+		$_SESSION['hoten']= $arr['hoten'];
+		$_SESSION['ngaysinh']= $arr['ngaysinh'];
+		$_SESSION['diachi']= $arr['diachi'];
+		header("location:dashboard user .php");
+	}
+	$sql=mysqli_query($conn,"select*from admin where username='$username' and password='$password'");
+	$row=mysqli_num_rows($sql);
+	if($row>0)
+	{
+		
+		$arr=mysqli_fetch_array($sql);
+		// $_SESSION['u_id']= $arr['id'];
+		// $_SESSION['user_id'] = $arr['username'];
+		// $_SESSION['pass']= $arr['password'];
+		// $_SESSION['hoten']= $arr['hoten'];
+		// $_SESSION['ngaysinh']= $arr['ngaysinh'];
+		// $_SESSION['diachi']= $arr['diachi'];
+		header("location:admin/dbadmin.php");
+    }
+    else
+    echo '<script type="text/javascript"> alert("Ten dang nhap hoac mat khau sai"); history.go(-1)</script>';
 }
+    // echo '<script type="text/javascript"> alert("Ten dang nhap hoac mat khau sai"); history.go(-1)</script>';
+    
+    // $_SESSION['username'] = $username;
+    // echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công. <a href='dashboard.php'>Về trang chủ</a>";
+    // die();
+
+	
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -39,7 +39,7 @@ snowStorm.useTwinkleEffect = false; // cho tuyết nhấp nháy
 		      <div class="inner cover">
 		        
 
-		        <p class="lead"><a class="btn btn-lg btn-success" href="dashboard.php"> Sử Dụng Ngay </a></p>
+		        <p class="lead"><a class="btn btn-lg btn-success" href="dashboard - guest.php"> Sử Dụng Ngay </a></p>
 		      </div>
 
 		      

@@ -11,9 +11,12 @@
   </head>
  
   <body>
+    <?php
+      require_once("../connect.php");
+    ?>
     <div class="container">
       <div class="row">
-        <h3> Quản lý thành viên</h3>
+        <h3> -------------------------Quản lý thành viên-------------------------</h3>
         <table class="table">
           <caption>Danh sách thành viên đã đăng ký</caption>
           <thead>
@@ -22,35 +25,29 @@
               <th>Tên đăng nhập</th>
               <th>Họ tên</th>
               <th>Địa chỉ email</th>
-              <th>Cấp độ</th>
+              
               <th>Hành động</td>
             </tr>
           </thead>
           <tbody>
+          <?php
+            $stt = 1 ;
+            $sql = "SELECT * FROM user";
+            // thực thi câu $sql với biến conn lấy từ file connection.php
+            $query = mysqli_query($conn,$sql);
+            while ($data = mysqli_fetch_array($query)) {
+          ?>
             <tr>
-              <th scope="row">1</th>
-              <td>teo123</td>
-              <td>Huynh Van Teo</td>
-              <td>huynhvanteo@gmail.com</td>
-              <td>Thành viên</td>
-              <td><a href="chinh-sua-thanh-vien.php?id=1">Sửa</a> <a href="xoa-thanh-vien.php?id=1">Xóa</a></td>
+              <th scope="row"><?php echo $stt++ ?></th>
+              <td><?php echo $data["username"]; ?></td>
+              <td><?php echo $data["fullname"]; ?></td>
+              <td><?php echo $data["email"]; ?></td>
+              
+              <td><a href="chinh-sua-thanh-vien.php?id=<?php echo $data["id"]; ?>">Sửa</a> <a href="xoa-thanh-vien.php?id=<?php echo $data["id"]; ?>">Xóa</a></td>
             </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>tuan123</td>
-              <td>Huynh Van Tuan</td>
-              <td>huynhvantuan@gmail.com</td>
-              <td>Quản trị viên</td>
-              <td><a href="chinh-sua-thanh-vien.php?id=2">Sửa</a> <a href="xoa-thanh-vien.php?id=2">Xóa</a></td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>ti123</td>
-              <td>Huynh Van Ti</td>
-              <td>huynhvanti@gmail.com</td>
-              <td>Thành viên</td>
-              <td><a href="chinh-sua-thanh-vien.php?id=3">Sửa</a> <a href="xoa-thanh-vien.php?id=3">Xóa</a></td>
-            </tr>
+          <?php
+            }
+          ?>
           </tbody>
         </table>
       </div>
@@ -62,7 +59,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
   
  
 </body></html>

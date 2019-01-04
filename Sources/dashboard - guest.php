@@ -91,7 +91,7 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 							<td><input class="form-control" type="text" name="music" size="3" maxlength="30" placeholder="Nhập Loại Nhạc"></td>
 							<td><input class="form-control" type="text" name="type" size="2" maxlength="10" placeholder="Nhập Mã Nhạc"></td>
 							</form>
-							<td><button onclick="addmusic();" class="btn btn-success"></span> Thêm Loại Nhạc</button></td>
+							<td><button class="btn btn-success"></span>Vui Lòng Đăng Nhập Để Thêm Loại Nhạc</button></td>
 						</tr>
 						</tbody>
 					</table>
@@ -123,7 +123,7 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 						<input class="btup" type="file" name="link" id="link">
 					</form>
 					<div>
-						<button  class="btn btn-success" onclick="addsong()" ></span> Thêm Bài Hát Mới</button>
+						<button  class="btn btn-success" ></span>Vui Lòng Đăng Nhập Để Thêm Bài Hát Mới</button>
 						
 					</div>
 					<br>
@@ -134,15 +134,10 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 		</div>
 		
     <hr>
-        <div class="text-center center-block">
-            
-            <br />
-                <a href="https://www.facebook.com"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-	            
-	            
-	           
-	</div>
-	<div><button type="submit" class="btn btn-default" name="dangky" HREF="index.php">Đăng XUẤT</button>
+	<center><button class="btn btn-success" onclick="window.location.href='dangnhap.php'">Đăng Nhập</button>
+</center>
+        
+	
 <script src="js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>

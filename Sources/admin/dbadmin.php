@@ -5,13 +5,13 @@
 	
 	<title>MFE.com</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script type="text/javascript" src="js/snowstorm.js"></script>
+	<script type="text/javascript" src="../js/snowstorm.js"></script>
 	<script type="text/javascript">
 snowStorm.snowColor = 'white'; // màu của tuyết - ở đây là màu xanh xám #fff
 snowStorm.flakesMaxActive = 10;  // số lượng tuyết rơi cùng 1 lúc
 snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 </script>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript">
 		function addmusic(){
@@ -48,7 +48,7 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 <body style="background-color: #f8f8f8">
 	<div class="container-fluid" >
 		<div style="background-color:white">
-			<center><a href="#" target="blank"><img src="logo.jpg" width="200"></a></center>
+			<center><a href="#" target="blank"><img src="../logo.jpg" width="200"></a></center>
 			<form id="form_search" class="form-inline" method="POST" action="search.php" style="padding-left: 10px;padding-bottom: 10px;">
 					<input class="form-control" type="text" name="search" placeholder="Tìm Kiếm Bài Hát.." size="30">
 					<button onclick="search();" class="btn btn-default" ><span class="glyphicon glyphicon-search"></span></button>
@@ -69,7 +69,7 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 					    </thead>
 					    <tbody>
 					    <?php
-							include("connect.php");
+							include_once("../connect.php");
 							$sql = "Select id,music,type From music";
 							$result = $conn->query($sql);
 							while($row = mysqli_fetch_assoc($result)){
@@ -142,8 +142,11 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 	          
 	        
 	</div>
-	<center><button type="submit" href="index.php">Đăng Xuất</button></center>
-<script src="js/bootstrap.min.js"></script>
+	<center><button class="btn btn-success" onclick="window.location.href='../index.php'">Đăng xuất</button>
+</center>
+<center><button class="btn btn-success" onclick="window.location.href='http://localhost/MyMusic/admin/quan-ly-thanh-vien.php'">Quản Lý Thành Viên</button>
+</center>
+<script src="../js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 </html>
