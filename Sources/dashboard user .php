@@ -78,9 +78,9 @@ snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 							echo '<td>'.$row['music'].'</td>';
 							echo '<td>'.$row['type'].'</td>';
 							echo '<td><a  href="song.php?type='.$row['type'].'" title="Xem Các Bài Hát!"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-								 <a href="deletemusic.php?music='.$row['music'].'" title="Xóa Bài Hát Này!"><span style="color:red" class="glyphicon glyphicon-remove"></span></a>
+								 
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<a onclick="edit('.$row['id'].');" title="Sửa Bài Hát Này!"><span s class="glyphicon glyphicon-pencil"></span></a>
+								
 								</td>';
 							echo "</tr>";
 						}
